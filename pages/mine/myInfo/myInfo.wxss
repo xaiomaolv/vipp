@@ -1,0 +1,8 @@
+/* pages/mine/myInfo/myInfo.wxss */
+.cardJ {
+  background: linear-gradient(90deg, #83796b 10%, #eeeee7 70%, #AFA290 90%);
+  border-radius: var(--border-radius);
+  margin: 30rpx 20rpx 0 20rpx;
+  padding: 30rpx;
+  color: #484848;
+}

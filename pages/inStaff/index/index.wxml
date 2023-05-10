@@ -1,0 +1,27 @@
+<!--pages/inStaff/index/index.wxml-->
+<view class="container bg-w">
+  <layout id="layout"></layout>
+
+  <view class="mg-tp-15">
+    <view class="item" bindtap="agentAppointment">
+      <view> 代理预约</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="administration">
+      <view> 行政预约</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="AuditList">
+      <view> 行政预约审核</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <!-- <view class="item" bindtap="vipAdd">
+      <view>贵宾新增</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view> -->
+    <!-- <view class="item" bindtap="passengerInfo">
+      <view>贵宾权益查询</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view> -->
+  </view>
+</view>

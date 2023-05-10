@@ -1,0 +1,9 @@
+<!--pages/worker/scanCode/scanCode.wxml ---扫码核销-->
+<view class="container bg-w ">
+  <layout id="layout"></layout>
+
+  <view class='flex-col flex-center mg-30'>
+    <image class="sacn" bindtap='scanCode' src='/img/scanCode.png' mode='widthFix'></image>
+  </view>
+  <button class='submit-btn primary btn-block' bindtap='scanCode' mode='widthFix'>扫码核销</button>
+</view>

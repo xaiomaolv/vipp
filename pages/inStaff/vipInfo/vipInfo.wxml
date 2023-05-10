@@ -1,0 +1,45 @@
+<!--pages/inStaff/vipInfo/vipInfo.wxml-->
+<!--新增贵宾 -->
+<view class="container bg-w">
+  <!-- <view class="fixed-add" bindtap="handleAdd">
+    <view class="cuIcon-add"></view>
+  </view> -->
+
+  <!-- 查询 -->
+  <view>
+    <view class="cu-form-group flex-col" style="margin-top:1rpx">
+      <text class="title">姓名：</text>
+      <input class="cell-col cell-input" placeholder="请输入姓名" data-obj="form.name" value="{{form.name}}"
+        bindinput="inputChange"></input>
+    </view>
+    <view class="cu-form-group">
+      <text class="title">电话号码</text>
+      <input class="cell-col cell-input" type="number" placeholder="请输入电话号码" data-obj="form.tel" value="{{form.tel}}"
+        bindinput="inputChange"></input>
+    </view>
+    <view class="cu-form-group">
+      <text class="title">身份证号</text>
+      <input class="cell-col cell-input" type="idcard" placeholder="请输入身份证号" data-obj="form.idCard" value="{{form.idCard}}"
+        bindinput="inputChange"></input>
+    </view>
+    <button class="primary btn-block" bindtap="search">查询</button>
+  </view>
+  <!-- 同行人 -->
+  <view class="cardM" wx:for="{{list}}" wx:key="index">
+    <view class="cells">
+      <view class="cell-col">姓名：{{item.name}}</view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">电话：{{item.tel}}</view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">身份证号：{{item.idCard}}</view>
+    </view>
+  </view>
+
+  <view class="tx-ct empty" wx:if="{{list == 0}}" style="margin-top:320rpx">
+    <image src="https://img01.yzcdn.cn/vant/empty-image-default.png" class="empty-img">
+    </image>
+    <text class="mg-tp-15">暂无记录</text>
+  </view>
+</view>

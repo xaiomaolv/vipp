@@ -1,0 +1,32 @@
+<!--pages/passenger/info/info.wxml-->
+<!-- 乘客信息 -->
+<view class="container bg-w">
+  <view class="fixed-add" bindtap="handleAdd" wx:if="{{couponInfos != 0}}">
+    <view class="cuIcon-add"></view>
+  </view>
+  <!-- 本人信息 -->
+  <view class="cardJ" wx:for="{{couponInfos}}" wx:key="index" wx:if="{{item.isVip == 0}}">
+    <view class="cells">
+      <view class="cell-col">姓名：{{item.name}}</view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">电话：{{item.tel}}</view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">身份证号：{{item.idCard}}</view>
+    </view>
+  </view>
+  <!-- 同行人 -->
+  <view class="cardM" wx:for="{{couponInfos}}" wx:key="index" wx:if="{{item.isVip == 1}}">
+    <view class="cells flex-col">
+      <view class="cell-col flex-col-12">姓名：{{item.name}}</view>
+      <view class="cell-col flex-col-12 tx-rt" data-value="{{item.id}}" bindtap="delete"><text class="cuIcon-delete size-18 clr-FFF"></text></view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">电话：{{item.tel}}</view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">身份证号：{{item.idCard}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "logo":"/components/logo/logo",
+    "star":"/components/star/star",
+    "layout":"/components/layout/layout",
+    "guide":"/components/guide/guide",
+    "instructions":"/components/instructions/instructions"
+  }
+}

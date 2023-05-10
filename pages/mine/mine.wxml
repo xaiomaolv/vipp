@@ -1,0 +1,36 @@
+<!--pages/mine/mine.wxml-->
+<view class="container bg-w">
+  <layout id="layout"></layout>
+  <view wx:if="{{isLogin}}" class="mg-10 ft-b tx-ct bd bd-color">
+    <text class="size-16" style="color:#fff">尊敬的贵宾用户</text>
+  </view>
+  <view class="">
+    <view class="item" bindtap="myInfo">
+      <view> 我的信息</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="myTrips">
+      <view>我的行程</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="instaffIn" wx:if="{{gh_admin}}">
+    <!-- <view class="item" bindtap="instaffIn"> -->
+      <view>行内人员</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="workerIn" wx:if="{{gt_common || jc_common}}">
+      <!-- <view class="item" bindtap="workerIn"> -->
+      <view>工作人员</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="vipTicker">
+      <view>我的券</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="complaint">
+      <view>投诉</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+  </view>
+  <logo class="logo" bind:accredit="handleAccredit" title="授权"></logo>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/customer/index/index.wxml-->
+<view class="container bg-g">
+  <layout id="layout"></layout>
+  <!-- <view class="flex-col flex-col-24">
+    <view class="flex-col-16 tx-lt">
+      <image style="width:100%;height:90rpx;margin:0" src="/img/wel.jpg"></image>
+    </view>
+    <view class="flex-col-6 tx-ct bd pd-5 orderColor" bindtap="orderInfo">
+      预约信息
+    </view>
+  </view> -->
+
+  <!-- 客户 -->
+  <view class="img-box bg-g">
+    <image class="img-box-item" style="width:100%;height:100rpx;margin:0" src="/img/wel.jpg"></image>
+    <view class="img-box-item mg-tp-20" bindtap="appointment">
+      <image class="" style="height: 50vh" src="/img/sy.jpg"></image>
+    </view>
+    <!-- <view class="" bindtap="activity">
+      <image class="" src="/img/rm.jpg"></image>
+    </view> -->
+    <view class='tx-ct mg-10' bindtap="handleGuide">
+      <image style="height:90rpx;width:50%" src="/img/fwzn.jpg"></image>
+    </view>
+  </view>
+  <view class="" bindtap="activity">
+    <image class="mg-bt-45" src="/img/rm.jpg"></image>
+  </view>
+  <guide class="guide" ></guide>
+  <logo class="logo" bind:accredit="handleAccredit" title="授权"></logo>
+</view>

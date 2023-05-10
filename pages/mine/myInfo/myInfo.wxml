@@ -1,0 +1,24 @@
+<!--pages/mine/myInfo/myInfo.wxml-->
+<view class="container bg-w">
+  <view class="cardJ">
+    <view class="cell">
+      <view class="cell-col">姓名</view>
+      <view class="cell-col cell-input">{{userInfo.name}}</view>
+    </view>
+    <!-- <view class="cell">
+      <view class="cell-col">性别</view>
+      <input class="cell-col cell-input" placeholder="" data-obj="form.departures " value="男"
+        bindinput="inputChange"></input>
+    </view> -->
+    <view class="cell">
+      <view class="cell-col">电话号码</view>
+      <view class="cell-col cell-input">{{userInfo.tel}}</view>
+    </view>
+    <view class="cell">
+      <view class="cell-col">身份证号</view>
+      <view class="cell-col cell-input">{{userInfo.idCard}}</view>
+    </view>
+  </view>
+  <button class="submit-btn primary btn-block" bindtap="updateTel">修改手机号</button>
+   <info class="info" bind:accredit="handleAccredit"></info>
+</view>

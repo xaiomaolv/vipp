@@ -1,0 +1,98 @@
+/**app.wxss**/
+@import "css/main.wxss";
+@import "css/icon.wxss";
+@import "css/project.wxss";
+@import "css/stylesheet.wxss";
+@import "css/icbc.wxss";
+@import "css/flex.wxss";
+
+page {
+  height: 100%;
+}
+
+.container {
+  min-height: 100%;
+  padding-bottom: 150rpx;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+  /* background-color: #eee; */
+  font-size: 28rpx!important;
+  color: #484848!important;
+  position: relative;
+} 
+
+.copy{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 50rpx;
+  left: 0;
+  font-size: 26rpx;
+  color: rgba(0,0,0,.5);
+}
+.copy image{
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: -14rpx;
+  margin-right:20rpx;
+}
+
+
+.fixed-add{
+  position: fixed;
+  bottom: 120rpx;
+  right: 30rpx;
+  width: 120rpx;
+  height:  120rpx;
+  line-height: 120rpx;
+  background: var(--primary-color);
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 68rpx;
+  z-index: 9999;
+}
+.border-top{
+  border-top: #eee solid 1px;
+}
+.border-left{
+  border-left: #eee solid 1px;
+}
+.border-right{
+  border-right: #eee solid 1px;
+}
+.placeholder-color{
+  color: #eee;
+}
+.money{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 40rpx;
+}
+checkbox .wx-checkbox-input {
+	width: 44rpx;
+	height: 44rpx;
+	border-radius: 50%;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #DCD6BB !important;
+  border-color:#DCD6BB !important;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 30rpx;
+  height: 30rpx;  
+  line-height: 30rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

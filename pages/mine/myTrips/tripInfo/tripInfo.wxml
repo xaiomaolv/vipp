@@ -1,0 +1,42 @@
+<!--pages/mine/myTrips/tripInfo/tripInfo.wxml-->
+<!-- 行程具体信息 -->
+<view class="container bg-w">
+  <!-- 本人信息 -->
+  <view class="cardJ">
+    <view class="cells">
+      <view class="cell-col">{{list.startStation || '未填写'}} — {{list.endStation || '未填写'}}</view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">班次：{{list.classCode}}</view>
+    </view>
+    <view class="cells">
+      <view class="cell-col">出发日期：{{list.departureDate}}</view>
+    </view>
+    <view wx:for="{{couponInfos}}" wx:key="index">
+      <!-- 本人 -->
+      <view class="cardM" wx:if="{{item.tpassengerInfo.isVip == 0}}">
+        <view class="cells">
+          <view class="cell-col">姓名：{{item.tpassengerInfo.name}}</view>
+        </view>
+        <view class="cells">
+          <view class="cell-col">电话：{{item.tpassengerInfo.tel}}</view>
+        </view>
+        <view class="cells">
+          <view class="cell-col">身份证号：{{item.tpassengerInfo.idCard}}</view>
+        </view>
+      </view>
+      <!-- 同行人 -->
+      <view class="cardP" wx:if="{{item.tpassengerInfo.isVip == 1}}">
+        <view class="cells">
+          <view class="cell-col">姓名：{{item.tpassengerInfo.name}}</view>
+        </view>
+        <view class="cells">
+          <view class="cell-col">电话：{{item.tpassengerInfo.tel}}</view>
+        </view>
+        <view class="cells">
+          <view class="cell-col">身份证号：{{item.tpassengerInfo.idCard}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

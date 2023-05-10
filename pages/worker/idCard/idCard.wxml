@@ -1,0 +1,43 @@
+<!--pages/worker/idCard/idCard.wxml-->
+<view class="container bg-w ">
+  <layout id="layout"></layout>
+  <view class="tabNav">
+    <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab"
+      class="{{currentTab==index ? 'cur' : ''}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view class='cell'>
+    <view class="cell-col cell-title">班次号</view>
+    <view class="cell-col cell-input">
+      <input placeholder="请输入您的班次号" data-obj="form.classCode" value="{{form.classCode}}"
+        bindinput="inputChange"></input>
+    </view>
+  </view>
+  <view class='cell'>
+    <view class="cell-col cell-no-title">出发地</view>
+    <picker class="cell-input" bindchange="bindLeaveChange" bindcancel="bindLeaveCancel" value="{{leaveIndex}}" range="{{leaveArray}}"
+        range-key="siteName">
+        <view class="{{!leaveArray[leaveIndex].siteName? 'clr-place' : ''}}">
+          {{leaveIndex?leaveArray[leaveIndex].siteName:'请选择出发地'}}
+        </view>
+      </picker>
+  </view>
+  <view class='cell'>
+    <view class="cell-col cell-no-title">目的地</view>
+    <picker class="cell-col cell-input" bindchange="bindArriveChange" bindcancel="bindArriveCancel" value="{{arriveIndex}}" range="{{arriveArray}}"
+        range-key="siteName">
+        <view class="{{!arriveArray[arriveIndex].siteName? 'clr-place' : ''}}">
+          {{arriveIndex?arriveArray[arriveIndex].siteName:'请选择目的地'}}
+        </view>
+      </picker>
+  </view>
+  <view class='cell'>
+    <view class="cell-col cell-title">身份证号</view>
+    <view class="cell-col cell-input">
+      <input placeholder="请输入您的身份证号码" type="idcard" data-obj="form.idCard" value="{{form.idCard}}"
+        bindinput="inputChange"></input>
+    </view>
+  </view>
+  <button class='submit-btn primary btn-block' bindtap='writeOff' mode='widthFix'>核销</button>
+</view>

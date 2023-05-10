@@ -1,0 +1,40 @@
+/* pages/mine/myTrips/myTrips.wxss */
+.cardJ{
+  background:#f1f1dd;
+  border-radius: var(--border-radius);
+  margin:30rpx 20rpx 0 20rpx ;
+  padding: 30rpx;
+  color:#484848 ;
+}
+.cells{
+max-width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: flex-start;
+align-content: flex-start;
+/* background-color: #FFF; */
+padding:20rpx  0rpx 10rpx 0rpx;
+border-bottom: 0.0625rem solid  var(--border-color);
+}
+ 
+.pick{
+  height: 48rpx;
+  font-size: 28rpx;
+  line-height: 46rpx;
+  padding: 0 30rpx;
+  border: var(--primary-color) 1px solid;
+  border-radius: 16rpx;
+  color:var(--primary-color);
+  font-weight: 400;
+}
+.bdColor{
+  color: #C49958;
+}
+.loadMore {
+  /* height: 35px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

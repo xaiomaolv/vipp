@@ -1,0 +1,23 @@
+<!--pages/worker/index/index.wxml-->
+<view class="container bg-w">
+  <layout id="layout"></layout>
+
+  <view class="mg-tp-15">
+    <view class="item" bindtap="idCard">
+      <view> 身份证核销</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="scanCode">
+      <view>扫码核销</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="couponCode">
+      <view>券码核销</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+    <view class="item" bindtap="appointInfo">
+      <view>预约信息</view>
+      <text class="cuIcon-right lg text-gray inline"></text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "agreement":"/components/agreement/index",
+    "logo":"/components/logo/logo",
+    "info":"/components/info/index"
+  }
+}

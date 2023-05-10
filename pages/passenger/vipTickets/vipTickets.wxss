@@ -1,0 +1,322 @@
+/* pages/passenger/vipTickets/vipTickets.wxss */
+/* .bg-vip{
+  background-image:;
+} */
+.bd1 {
+  height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  background: #F2F1D2;
+}
+
+.pd-35 {
+  padding: 70rpx;
+}
+
+/*分割线样式*/
+.divLine {
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+}
+
+/*加减主容器*/
+.stepper {
+  /* width:60%;
+	height: 100rpx; */
+  /*给主容器设一个边框*/
+  /* border: 1px solid #ccc; */
+  /* border-radius: 3px;
+	margin:0 auto; */
+}
+
+/*加号和减号*/
+.stepper text {
+  width: 120rpx;
+  line-height: 100rpx;
+  text-align: center;
+  float: left;
+  font-size: 50rpx;
+}
+
+/*数值*/
+.stepper input {
+  width: 200rpx;
+  height: 98rpx;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 35rpx;
+  /*给中间的input设置左右边框即可*/
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+/*普通样式*/
+.stepper .normal {
+  color: black;
+}
+
+/*禁用样式*/
+.stepper .disabled {
+  color: #ccc;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.section-good {
+  margin-bottom: 100rpx;
+}
+
+.good {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  height: 250rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.good:last-child {
+  border-bottom: none;
+}
+
+.checkbox {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.cover {
+  width: 400rpx;
+  height: 230rpx;
+  margin-left: 20rpx;
+}
+
+.content {
+  flex: 1;
+  margin-left: 20rpx;
+  margin-bottom: 35rpx;
+}
+
+.content .text {
+  color: #363636;
+  width: 220rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.content .name {
+  color: #333;
+  font-size: 36rpx;
+}
+
+.content .desc {
+  color: #807d7d;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+.content .price {
+  font-size: 34rpx;
+  color: #e4452a;
+  margin-top: 10rpx;
+}
+
+.good .stepper {
+  display: flex;
+  position: absolute;
+  right: 0rpx;
+  bottom: 10rpx;
+  flex-direction: row;
+  text-align: center;
+}
+
+.stepper .add,
+.stepper .subtract {
+  width: 75rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.stepper .disabled {
+  color: #eee;
+}
+
+.stepper .count {
+  width: 75rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1px solid #ccc;
+  text-align: center;
+  box-sizing: border-box;
+  min-height: 1rem;
+  font-size: 30rpx;
+}
+
+.section-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 6rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 99;
+}
+
+.section-bottom .btn {
+  width: 160rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fdfffd;
+  background-color: #fbb304;
+}
+
+.section-bottom .btn-default {
+  color: #363636;
+  background-color: #eee;
+}
+
+.section-bottom .btn-primary {
+  color: #fdfffd;
+  background-color: #fbb304;
+}
+
+.section-bottom .checkbox-allcheck {
+  display: inline-block;
+  margin-left: 30rpx;
+  vertical-align: top;
+  font-size: 0px;
+}
+
+.section-bottom .check-all-text {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10rpx;
+  height: 23px;
+  line-height: 23px;
+  font-size: 28rpx;
+}
+
+.section-bottom .total {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.total .totalCount {
+  font-size: 28rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.total .totalPrice {
+  display: inline-block;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+
+.total .totalCount text {
+  color: #e4452a;
+  vertical-align: middle;
+}
+
+.total .totalPrice text {
+  color: #e4452a;
+  font-size: 36rpx;
+  vertical-align: middle;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 14rpx 0px;
+  justify-content: space-between;
+}
+
+.nav-li {
+  height: 260rpx;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  width: 100% !important;
+  margin: 0 2.5% 10rpx;
+  background-image: url(https://image.weilanwl.com/color2.0/cardBg.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.root {
+  /* width: 100%; */
+  height: 285rpx;
+  background-color: #F1DDC0;
+  position: relative;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.content1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+.okbtn{  
+  height: 260rpx;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  width: 100% !important; 
+  text-align: center;
+  line-height: 38px; 
+  background-color: transparent;   /*按钮透明*/  
+  border:none;				/*设置按钮边框*/
+}
+.okbtn::after{ 
+  border:none;
+}
+.text-code{
+  font-weight: bold;
+  margin-top: 15%;
+  /* color: white; */
+  color: #C49958;
+  font-size: 60rpx;
+}
+.text-code-w{
+  font-weight: bold;
+  margin-top: 14.6%;
+  /* color: white; */
+  color: #C49958;
+  font-size: 60rpx;
+}
+.question{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  font-size: 40rpx;
+}

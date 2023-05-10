@@ -1,0 +1,47 @@
+<!--pages/login/login.wxml-->
+<view class="container login-container">
+  <form class="login-form">
+    <view class="row">
+      <view class="login-item">
+        <view class="item-col item-input">
+          <input placeholder="姓名" placeholder-class="phcolor" type="text" data-obj="form.name" value="{{form.name}}"
+            disabled="{{isDisabled}}" bindinput="inputChange"></input>
+        </view>
+      </view>
+      <view class="login-item">
+        <view class="item-col item-input">
+          <input placeholder="身份证号" placeholder-class="phcolor" type="idcard" data-obj="form.idCard"
+            value="{{form.idCard}}" disabled="{{isDisabled}}" bindinput="inputChange"></input>
+        </view>
+      </view>
+    </view>
+    <view class="mg-tp-15">
+    <view class="tx-lt row" style="color:var(--primary-color)">
+      <view class="tx-lt row mg-tp-5" data-value="{{agreementList[1]}}" bindtap="handleAgreement">
+        {{agreementList[1].title}}</view>
+      <!-- <view class="tx-lt row mg-tp-5"  data-value="{{agreementList[2]}}" bindtap="handleAgreement">{{agreementList[2].title}}</view>
+             <view class="tx-lt row mg-tp-5"  data-value="{{agreementList[3]}}" bindtap="handleAgreement">{{agreementList[3].title}}</view> -->
+    </view>
+  </view>
+  <view class="mg-tp-15 flex-col"> 
+    <radio class="green" style="float:left;top:-7rpx;left:0rpx;margin-right:20rpx" checked="{{agreement}}"
+      bindtap="switchAgreement"></radio>
+      <span class="text-gray">我已阅读上面协议并同意签署</span>
+  </view>
+
+    <view class='row mg-tp-50 tx-ct'>
+      <button class="login-btn" bindtap="submit">注册</button>
+    </view>
+
+    <view class="notice row mg-tp-50 tx-lt">
+			<text class="notice-title">说明：</text>
+		需要匹配姓名、证件号、银行预留手机号
+		</view>
+  </form>
+
+  
+  
+  <agreement class="agreement"  title="{{agreeTitle}}" Id="{{agreeId}}"></agreement>
+  <logo class="logo" bind:accredit="handleAccredit"></logo>
+  <info class="info"></info>
+</view>

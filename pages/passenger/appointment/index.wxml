@@ -1,0 +1,188 @@
+<!--pages/passenger/appointment/index.wxml-->
+<!-- 预约出行 -->
+<page-meta page-style="{{ show || showa ? 'overflow: hidden;' : '' }}" />
+<view class="container bg-w">
+  <layout id="layout"></layout>
+  <view class="tabNav">
+    <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab" class="{{currentTab==index ? 'cur' : ''}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 表单 -->
+  <view class="row mg-tp-10">
+    <view class="cell tx-ct">
+    </view>
+    <view class="cell">
+      <view class="cell-col cell-title">{{form.type !== 1 ? '车次':'航班'}}</view>
+      <input class="cell-col cell-input" placeholder="{{form.type !== 1 ? '请输入车次':'请输入航班'}}" type="text" data-obj="form.classCode" value="{{form.classCode}}" bindinput="inputChange"></input>
+    </view>
+
+    <view class="cell">
+      <view class="cell-col cell-title">出发日期</view>
+      <picker class="cell-col cell-input" mode="date" data-obj="form.departureDate" bindchange="bindDateChange">
+        <view class="{{!form.departureDate? 'clr-place' : ''}}">
+          {{form.departureDate? form.departureDate: '请选择日期'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="cell">
+      <view class="cell-col title">出发地</view>
+      <picker class="cell-input" bindchange="bindLeaveChange" bindcancel="bindLeaveCancel" value="{{leaveIndex}}" range="{{leaveArray}}" range-key="siteName">
+        <view class="{{!leaveArray[leaveIndex].siteName? 'clr-place' : ''}}">
+          {{leaveIndex?leaveArray[leaveIndex].siteName:'请选择出发地'}}
+        </view>
+      </picker>
+      <view class="flex-col">
+        <view class="mg-lt-10 tx-rt flex-col">
+          <radio checked='{{checkS}}' value="{{form.szStatus}}" bindtap='send'></radio><label class="mg-lt-5 size-16">送</label>
+        </view>
+      </view>
+    </view>
+
+    <view class="cell">
+      <view class="cell-col title">送站车牌</view>
+      <input class="cell-col cell-input" placeholder="请输入送站车牌" type="text" data-obj="form.licensePlates" value="{{form.licensePlates}}" disabled="{{true}}" bindtap="handleSong"></input>
+    </view>
+
+    <view class="cell">
+      <view class="cell-col title">目的地</view>
+      <picker class="cell-col cell-input" bindchange="bindArriveChange" bindcancel="bindArriveCancel" value="{{arriveIndex}}" range="{{arriveArray}}" range-key="siteName">
+        <view class="{{!arriveArray[arriveIndex].siteName? 'clr-place' : ''}}">
+          {{arriveIndex?arriveArray[arriveIndex].siteName:'请选择目的地'}}
+        </view>
+      </picker>
+      <view class="flex-col">
+        <view class="mg-lt-10 tx-rt flex-col">
+          <radio class="" checked='{{checkG}}' value="{{form.jzStatus}}" bindtap='take'></radio>
+          <label class="mg-lt-5 size-16">接</label>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="cell">
+      <view class="cell-col title">接站车牌</view>
+      <input class="cell-col cell-input" placeholder="请输入接站车牌" type="text" data-obj="form.licensePlatesEnd" value="{{form.licensePlatesEnd}}" disabled="{{true}}" bindtap="handleJie"></input>
+    </view>
+
+  </view>
+
+  <text class="mg-lt-10 mg-tp-10">注：仅对可选站点提供贵宾服务，同时选择接送需消耗2张券;</text>
+
+  <button class="submit-btn primary btn-block" bindtap="next">下一步</button>
+
+
+  <!-- 预约信息确认 -->
+  <view class="fixed-bottom row {{show ?'animationed':'animation'}}">
+    <view class="bg-w  fixed-bottom row">
+      <view class="pd-tb-20 pd-lr-15">
+        <view class="flex-col mg-bt-30">
+          <view class="flex-col-20 ft-se-16 ft-bd">预约信息</view>
+          <view class="flex-col-4 tx-rt" bindtap="handleCencel">
+            <image src="../../../img/close.png" alt="" style="width: 50rpx; height: 50rpx;"></image>
+          </view>
+        </view>
+
+        <view class="flex-col mg-bt-20 ">
+          <view class="flex-col-12">{{form.type !== 1 ? '车次':'航班'}}</view>
+          <view class="flex-col-12 tx-rt">{{form.classCode}}</view>
+        </view>
+
+        <view class="flex-col  mg-bt-20" wx:if="{{form.startStation}}">
+          <view class="flex-col-12">出发地</view>
+          <view class="flex-col-10 tx-rt">{{form.startStation}}</view>
+          <view class="flex-col-2 tx-rt">{{checkS?'送':''}}</view>
+        </view>
+
+        <view class="flex-col  mg-bt-20" wx:if="{{form.endStation}}">
+          <view class="flex-col-12">目的地</view>
+          <view class="flex-col-10 tx-rt">{{form.endStation}}</view>
+          <view class="flex-col-2 tx-rt">{{checkG?'接':''}}</view>
+        </view>
+
+        <view class="flex-col  mg-bt-20">
+          <view class="flex-col-12">出发时间</view>
+          <view class="flex-col-12 tx-rt">{{form.departureDate}}</view>
+        </view>
+
+        <view class="flex-col flex-col-item  mg-bt-20" wx:if="{{form.licensePlates}}">
+          <view class="flex-col-6">送站车牌</view>
+          <view class="flex-col-18 tx-rt">{{form.licensePlates}}</view>
+        </view>
+
+        <view class="flex-col flex-col-item  mg-bt-20" wx:if="{{form.licensePlatesEnd}}">
+          <view class="flex-col-6">接站车牌</view>
+          <view class="flex-col-18 tx-rt">{{form.licensePlatesEnd}}</view>
+        </view>
+
+      </view>
+
+      <view class="flex-col">
+        <view class="flex-col-12">
+          <button class="submit-btn primary btn-block " bindtap="handleCencel">取消</button>
+        </view>
+        <view class="flex-col-12">
+          <button class="submit-btn primary btn-block " bindtap="handleConfirm">确认</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 车牌号添加 -->
+  <view class="fixed-bottom row {{showa ?'animationed':'animation'}}">
+    <view class="bg-w  fixed-bottom row " style="height:95%">
+      <view class="pd-tb-20 pd-lr-15" style="height: 100%;">
+        <view class="flex-col mg-bt-30">
+          <view class="flex-col-20 ft-se-16 ft-bd">添加车牌号</view>
+          <view class="flex-col-4 tx-rt" bindtap="palteCencel">
+            <image src="../../../img/close.png" alt="" style="width: 50rpx; height: 50rpx;"></image>
+          </view>
+        </view>
+        <view class="scroll-col" style="height: 80%; position: relative;">
+          <view class="scroll">
+            <view class="flex-col mg-bt-10 bd-bt pd-bt-10">
+              <input class="flex-col-20" placeholder="请输入车牌" type="text" data-obj="plateNo" value="{{plateNo}}" bindinput="inputChange"></input>
+              <view class="flex-col-4 tx-ct">
+                <text class="cuIcon-add bd" bindtap="hanleAdd" style="font-size: 56rpx; border-radius: 50%; padding: 5rpx;"></text>
+              </view>
+            </view>
+
+            <view class="flex-col  pd-bt-10" wx:for="{{addList}}" wx:key="index">
+              <input class="flex-col-20" placeholder="" type="text" data-obj="item" value="{{item}}" bindinput="inputChange" disabled="{{true}}"></input>
+              <view class="flex-col-4 tx-ct">
+                <text class="cuIcon-delete " style="font-size: 40rpx; border-radius: 50%; padding: 5rpx;" data-value="{{item}}" data-index="{{index}}" bindtap="handleDel"></text>
+              </view>
+            </view>
+
+            <view wx:if="{{plateListS.length !== 0 || plateListJ.length !== 0 }}">
+
+              <view class="flex-col  pd-bt-10 bd-bt mg-tp-15">
+                <view class="flex-col-20">历史记录</view>
+                <view class="flex-col-4 flex-col tx-rt" bindtap="handleClear">
+                  清空<text class="cuIcon-delete " style="font-size: 40rpx; border-radius: 50%; padding: 5rpx;"></text>
+                </view>
+              </view>
+              <view class="flex-col flex-wrap mg-tp-15">
+                <view wx:for="{{isJoS == '1'? plateListS : plateListJ }}" wx:key="index" data-idx="{{index}}" bindtap="handleTab" class="flex-col-8 tx-ct ">
+                  <view class="bd mg-bt-10 {{item.checked ? 'active' : ''}}" style="width: 95%; padding: 16rpx 0;"><text wx:if="{{item.checked}}" class="label"></text> {{item.NO}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="flex-col" style="width: 100%; ">
+          <view class="flex-col-12">
+            <button class="submit-btn primary btn-block " style="margin-top: 0;" bindtap="palteCencel">取消</button>
+          </view>
+          <view class="flex-col-12">
+            <button class="submit-btn primary btn-block " style="margin-top: 0;" bindtap="palteConfirm">确认</button>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

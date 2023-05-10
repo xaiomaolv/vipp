@@ -1,0 +1,15 @@
+/* components/instructions/instructions.wxss */
+.container {
+  min-height: 100%;
+  padding-bottom: 100rpx;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+  /* background-color: #eee; */
+  font-size: 28rpx !important;
+  color: #484848 !important;
+  position: relative;
+}

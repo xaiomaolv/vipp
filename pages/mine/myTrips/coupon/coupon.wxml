@@ -1,0 +1,14 @@
+<!--pages/mine/myTrips/coupon/coupon.wxml-->
+<view class="container bg-w">
+  <!-- <view wx:for="{{list}}"> -->
+    <!-- <view class="cell cell-col grey">
+      有效期至: {{item.expireDate}}
+    </view> -->
+    <!-- 二维码 -->
+    <view class="cells tx-ct">
+      <view class="qrCode">
+        <image style="width:100%;height:500rpx" src="{{qrcode}}"></image>
+      </view>
+    </view>
+  <!-- </view> -->
+</view>

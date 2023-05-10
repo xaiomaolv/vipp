@@ -1,0 +1,13 @@
+<!--pages/hotActivity/hotActivity.wxml-->
+<view class="container bg-w">
+  <view wx:for="{{activeList}}" wx:key="item">
+    <view data-value="{{item}}" bindtap="handelActive">
+      <image class='img' src="data:image/png;base64,{{item.image}}" mode="aspectFill" style=" width:100%; display:line-block"></image>
+    </view>
+  </view>
+  <view class="tx-ct empty" wx:if="{{activeList == 0}}">
+    <image src="https://img01.yzcdn.cn/vant/empty-image-default.png" class="empty-img">
+    </image>
+    <text class="mg-tp-15">暂无活动</text>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+/* pages/mine/myTrips/appraise/appraise.wxss */
+.stars{
+	width: 600rpx;
+	margin: 0 auto;
+}
+.cell-input1{
+	flex: 1;
+	line-height: 48rpx ;
+	display: inline-block;
+	width: 0%;
+	/* height: 100%; */
+	line-height: 48rpx ;
+	color: var(--color);
+	font-size:28rpx ;
+	background-color: none;
+	text-align: right;
+}
+/* button {
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 10rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2rpx solid #caccce;
+  color: #8a8e99;
+  padding: 0rpx 10rpx;
+  margin: 0rpx 10rpx 10rpx 0rpx
+}
+
+button::after {
+  border: none
+}
+
+button.active {
+  background: linear-gradient(90deg, #EFE7CE 10%, #eeeee7 50%, #EFE7CE 90%);
+  border: 2rpx solid #EFE7CE;
+  color: #344352
+} */

@@ -1,0 +1,21 @@
+<!--pages/customer/index/index.wxml-->
+<!-- 乘客信息-首页 -->
+<view class="container bg-w">
+  <view>
+    <layout id="layout"></layout>
+    <view class="mg-10-15">
+      <image style="width:70%;height:90rpx" src="/img/welcome.png"></image>
+    </view>
+  </view>
+  <view>
+    <view class="mg-10-15" bindtap="info">
+      <image style="width: 100%;height:320rpx" src="/img/ck.png"></image>
+    </view>
+  </view>
+  <view class='bdColor copy'>
+    <view class="td size-18">
+      服务指南<image src="/img/cx.png"></image>
+    </view>
+  </view>
+  <logo class="logo" bind:accredit="handleAccredit" title="授权"></logo>
+</view>

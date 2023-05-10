@@ -1,0 +1,92 @@
+<!--pages/passenger/vipTickets/vipTickets.wxml-->
+<view class="container bg-w">
+  <view class="tabNav">
+    <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab"
+      class="{{currentTab==index ? 'cur' : ''}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view wx:if="{{!show}}">
+    <view class="mg-10 root">
+      <image class='background-image' src='../../../img/qb.jpg'></image>
+      <view class="content1">
+        <view wx:if="{{list.isAssetsReach || list.isBlackCard || list.isConsumptionReach || list.isWhitelist}}"
+          class="tx-rt flex-col-18 text-code-w mg-10">无限次</view>
+        <view wx:else class="tx-rt flex-col-18 text-code mg-10">{{list.selfSum || 0}}张</view>
+        <view wx:for="{{self}}" wx:key="index">
+          <view class="tx-rt size-12 mg-rt-10 clr-999">到期日 {{item.expireDate}}：{{item.amount}} 张</view>
+        </view>
+      </view>
+      <text class="cuIcon-question question" data-value="{{1}}" bindtap="handleItem"></text>
+    </view>
+    <view class="mg-10 root">
+      <image class='background-image' src='../../../img/qx.jpg'></image>
+      <view class="content1">
+        <view class="tx-rt flex-col-18 text-code mg-10">{{list.bringPartnerSum || 0}}张</view>
+        <view wx:for="{{bringPartner}}" wx:key="index">
+          <view class="tx-rt size-12 mg-rt-10 clr-999">到期日 {{item.expireDate}}：{{item.amount}} 张</view>
+        </view>
+      </view>
+      <text class="cuIcon-question question" data-value="{{2}}" bindtap="handleItem"></text>
+    </view>
+    <view class="mg-10 root">
+      <image class='background-image' src='../../../img/jx.jpg'></image>
+      <view class="content1">
+        <view class="tx-rt flex-col-18 text-code mg-10">{{list.airportSum || 0}}张</view>
+        <view wx:for="{{airport}}" wx:key="index">
+          <view class="tx-rt size-12 mg-rt-10 clr-999">到期日 {{item.expireDate}}：{{item.amount}} 张</view>
+        </view>
+      </view>
+
+      <text class="cuIcon-question question" data-value="{{3}}" bindtap="handleItem"></text>
+    </view>
+    <view class="mg-10 root">
+      <image class='background-image' src='../../../img/gx.jpg'></image>
+      <view class="content1">
+        <view class="tx-rt flex-col-18 text-code mg-10">{{list.bulletTrainSum || 0}}张</view>
+        <view wx:for="{{bulletTrain}}" wx:key="index">
+          <view class="tx-rt size-12 mg-rt-10 clr-999">到期日 {{item.expireDate}}：{{item.amount}} 张</view>
+        </view>
+      </view>
+      <text class="cuIcon-question question" data-value="{{4}}" bindtap="handleItem"></text>
+    </view>
+    
+  </view>
+  <!-- 购买 -->
+  <view wx:if="{{show}}">
+    <view class='section section-good'>
+      <checkbox-group bindchange="checkboxChange">
+        <view class='good' wx:for='{{goodList}}' wx:key="index">
+          <label class="checkbox">
+            <checkbox value="{{item.isbn}}" hidden='hidden' />
+            <icon type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+            <icon type="success" size="23" wx:if="{{item.checked}}"></icon>
+          </label>
+          <image class='cover' src='{{item.cover}}'></image>
+          <view class='content'>
+            <view class='text name'>{{item.name}}</view>
+            <view class='text desc'>{{item.desc}}</view>
+            <view class='text price'>¥{{item.price}}</view>
+          </view>
+          <view class='stepper'>
+            <view class='subtract {{item.count == 1 ? "disabled": ""}}' data-index='{{index}}' catchtap='subtracttap'>-
+            </view>
+            <input class='count' type='number' value='{{item.count}}'></input>
+            <view class='add' data-index="{{index}}" catchtap='addtap'>+</view>
+          </view>
+        </view>
+      </checkbox-group>
+    </view>
+    <view class='section-bottom'>
+      <view class="total">
+        <view class='totalCount'>已选择
+          <text space="ensp"> {{totalCount}} </text>张优惠券
+        </view>
+        <view class='totalPrice'>总价：
+          <text>¥{{totalPrice}}</text>
+        </view>
+      </view>
+      <view class='btn {{totalCount > 0 ? "btn-primary" : "btn-default"}}' bindtap="buy">去结算</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/hotActivity/hotActivity.wxss */
+.img{
+  height: 340rpx ;
+}

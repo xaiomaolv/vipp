@@ -1,0 +1,141 @@
+/* pages/passenger/appointment/index.wxss */
+/* tab切换 */
+.tabNav {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #C49958;
+  display: flex;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #dedede;
+  box-sizing: border-box;
+}
+.tabNav .cur text {
+  border-bottom: 5rpx solid #f0f0e8;
+  color: #ebe70c;
+}
+.item-radio {
+  width: 25%;
+  display: inline-block;
+  text-align: left;
+}
+
+.cell-pickers {
+  display: inline-block;
+  width: 100%;
+  /* height: 100%; */
+  line-height: 48rpx;
+  color: #666;
+  font-size: 28rpx;
+  background-color: none;
+  text-align: center;
+}
+
+/* 单选框样式 */
+/* 初始样式 */
+radio .wx-radio-input {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 0
+}
+
+.phcolor {
+  color: #484848;
+}
+
+/* 选中后的 背景样式 （ 背景 边框 ） */
+radio .wx-radio-input.wx-radio-input-checked {
+  width: 32rpx;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 32rpx;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  /* background: #C49958 !important; */
+}
+
+radio::before,
+checkbox::before {
+  font-family: "cuIcon";
+  content: "\e645";
+  position: absolute;
+  color: var(--white) !important;
+  top: 50%;
+  margin-top: -8px;
+  left: 3rpx;
+  font-size: 32rpx;
+  line-height: 16px;
+  pointer-events: none;
+  transform: scale(1, 1);
+  transition: all 0.3s ease-in-out 0s;
+  z-index: 9;
+}
+
+.title {
+  padding-left: 16rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+
+.animation{
+  height: 100vh; 
+  background-color: rgba(0,0,0,.3); 
+  z-index:10001;
+  /* -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out; */
+  transform: translateY(100%);
+  transition: all 0.3s ease-in-out;
+}
+.animationed{
+  height: 100vh; 
+  background-color: rgba(0,0,0,.3); 
+  z-index:10001;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.title{
+  width: 140rpx;
+}
+.active{
+  position: relative;
+  border:var(--primary-color) 1px solid;
+  color: var(--primary-color);
+  overflow: hidden;
+}
+.label {
+  position: absolute;
+  right: -15px;
+  top: -5px;
+  width: 36px;
+  height: 20px;
+  background: #13ce66;
+  text-align: center;
+  transform: rotate(45deg);
+  box-shadow: 0 1px 1px #ccc;
+}
+.label::before {
+  font-family: "cuIcon";
+  content: "\e645";
+  position: absolute;
+  color: var(--white) !important;
+  top: 15rpx;
+  /* margin-top: -8px; */
+  left: 28rpx;
+  font-size: 32rpx;
+  line-height: 16px;
+  pointer-events: none;
+  transform: rotate(-45deg) scale(1, 1);
+  transition: all 0.3s ease-in-out 0s;
+  z-index: 9;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
+  /* background-color: #f00; */
+  
+}
+.scroll {
+  height: 100%;
+  overflow-y: auto;
+  padding: 30rpx 0rpx;
+}

@@ -1,0 +1,27 @@
+<!--pages/passenger/info/peers/peers.wxml-->
+<!-- 表单 -->
+<view class="container bg-w">
+  <view class="row mg-tp-15">
+    <view class="cell">
+      <view class="cell-col cell-title">姓名</view>
+      <input class="cell-col cell-input" placeholder="请输入姓名" data-obj="form.name" value="{{form.name}}"
+        bindinput="inputChange"></input>
+    </view>
+    <view class="cell">
+      <view class="cell-col cell-title">电话号码</view>
+      <input class="cell-col cell-input" type="number" placeholder="请输入电话号码" data-obj="form.tel" value="{{form.tel}}"
+        bindinput="inputChange"></input>
+    </view>
+    <view class="cell">
+      <view class="cell-col cell-title">身份证号</view>
+      <input class="cell-col cell-input" type="idcard" placeholder="请输入身份证号" data-obj="form.idCard" value="{{form.idCard}}"
+        bindinput="inputChange"></input>
+    </view>
+    <view class="cell">
+      <view class="cell-col cell-no-title">车牌</view>
+      <input class="cell-col cell-input" placeholder="请输入车牌" data-obj="form.licensePlates" value="{{form.licensePlates}}"
+        bindinput="inputChange"></input>
+    </view>
+    <button class="submit-btn primary btn-block" bindtap="add">添加</button>
+  </view>
+</view>

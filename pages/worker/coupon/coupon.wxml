@@ -1,0 +1,19 @@
+<!--pages/worker/coupon/coupon.wxml-->
+<view class="container bg-w">
+  <layout id="layout"></layout>
+
+  <view wx:for="{{couponList}}" wx:key="{{index}}">
+     <view class="option-item">
+       <image class="img" src="../../../img/delete.png" data-index="{{index}}" bindtap = "delOption" />
+       <input type="text" data-index="{{index}}" placeholder="请输入券码" maxlength="6" bindinput="bindinput"/>
+     </view>
+  </view>
+  <view>
+    <view class="add-option-item" bindtap = "addOption">
+      <image class="img" src="../../../img/add.png"/>
+      <view class="btnText">添加券码</view>
+    </view>
+  </view>
+  <button class='submit-btn primary btn-block' bindtap='writeOffCoupon'>核销</button>
+</view>
+

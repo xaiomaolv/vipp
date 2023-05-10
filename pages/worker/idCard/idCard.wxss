@@ -1,0 +1,4 @@
+/* pages/worker/idCard/idCard.wxss */
+.phcolor {
+  color: #484848;
+}

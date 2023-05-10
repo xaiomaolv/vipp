@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/inStaff/appointmentAudit/appointmentAudit",
+    "pages/passenger/appointmentInfo/appointmentinfo",
+    "pages/passenger/info/info",
+    "pages/passenger/appointment/index",
+    "pages/login/login",
+    "pages/worker/index/index",
+    "pages/worker/scanCode/scanCode",
+    "pages/inStaff/index/index",
+    "pages/passenger/index/index",
+    "components/instructions/instructions",
+    "components/layout/layout",
+    "pages/mine/myTrips/myTrips",
+    "pages/mine/myTrips/tripInfo/tripInfo",
+    "pages/mine/myInfo/myInfo",
+    "pages/passenger/info/peers/peers",
+    "pages/passenger/vipTickets/vipTickets",
+    "pages/passenger/choosePeers/choosePeers",
+    "pages/inStaff/peers/peers",
+    "pages/inStaff/appointment/index",
+    "pages/inStaff/choosePeers/choosePeers",
+    "pages/inStaff/vipInfo/vipInfo",
+    "pages/mine/myTrips/appraise/appraise",
+    "pages/mine/complaint/complaint",
+    "pages/mine/myTrips/coupon/coupon",
+    "pages/inStaff/administration/administration",
+    "pages/hotActivity/hotActivity",
+    "pages/webview/webview",
+    "pages/worker/coupon/coupon",
+    "pages/passenger/appointmentInfo/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#C49958",
+    "navigationBarTitleText": "体验专属权益，尊享无忧出行！",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于定位您当前所属的市区位置"
+    }
+  },
+  "tabBar": {
+    "color": "#242425",
+    "selectedColor": "#848580",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "img/home.png",
+        "iconPath": "img/home-a.png",
+        "pagePath": "pages/index/index",
+        "text": "主页"
+      },
+      {
+        "selectedIconPath": "img/jf.png",
+        "iconPath": "img/jf-a.png",
+        "pagePath": "pages/passenger/info/info",
+        "text": "乘客信息"
+      },
+      {
+        "selectedIconPath": "img/mine.png",
+        "iconPath": "img/mine-a.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

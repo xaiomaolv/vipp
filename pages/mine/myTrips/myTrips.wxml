@@ -1,0 +1,120 @@
+<!--pages/mine/myTrips/myTrips.wxml-->
+<page-meta page-style="{{ !hiddenmodalput  ? 'overflow: hidden;' : '' }}" />
+<view class="container bg-w">
+  <view class="tabNav">
+    <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab"
+      class="{{currentTab==index ? 'cur' : ''}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="cardJ" wx:if="{{currentTab == 3}}" wx:for="{{listC}}" wx:key="index" data-value="{{item}}">
+    <view class="tx-ct">
+      <view class="cell-col"><text class="tx-ct">{{item.reservation.type}}</text></view>
+    </view>
+    <view class="flex-col flex-col-24" data-value="{{item}}" bindtap="tripInfo">
+      <view class="flex-col-19">
+        <view class="cells">
+          <view class="cell-col"><text space="ensp">{{item.reservation.startStation}} — {{item.reservation.endStation}}</text></view>
+        </view>
+        <view class="cells ">
+          <view class="cell-col">班次：{{item.reservation.classCode}}</view>
+        </view>
+        <view class="cells ">
+          <view class="cell-col">日期：{{item.reservation.departureDate}}</view>
+        </view>
+      </view>
+      <view class="flex-col-5">
+        <view class="cells">
+          <view class="cell-col"><text space="ensp">总人数：{{item.reservation.peopleNum}}</text></view>
+        </view>
+        <view class="cells" wx:if="{{item.reservation.jzStatus}}">
+          <button class="pick pd-5">{{item.reservation.jzStatus}}</button>
+        </view>
+        <view class="cells " wx:if="{{item.reservation.szStatus}}">
+          <button class="pick pd-5">{{item.reservation.szStatus}}</button>
+        </view>
+      </view>
+    </view>
+    <view class="tx-ct bdColor flex-col mg-tp-5">
+      <view class="flex-col-12" data-value="{{item}}" wx:if="{{item.isSzStatus == 1 && item.status != 0}}"
+        bindtap="checkDetailS"><text class="size-16">送站审核</text></view>
+        <view class="flex-col-12" data-value="{{item}}" wx:if="{{item.isSzStatus == 1 && item.status == 0}}"><text class="size-16">待审核</text></view>
+      <view class="flex-col-12" data-value="{{item}}" wx:if="{{item.isJzStatus == 1 && item.status != 0}}"
+        bindtap="checkDetailJ"><text class="size-16">接站审核</text></view>
+        <view class="flex-col-12" data-value="{{item}}" wx:if="{{item.isJzStatus == 1 && item.status == 0}}"><text class="size-16">待审核</text></view>
+    </view>
+  </view>
+
+  <view class="cardJ" wx:if="{{currentTab == 0 || currentTab == 1 || currentTab == 2}}" wx:for="{{list}}" wx:key="index"
+    data-value="{{item}}">
+    <view class="tx-ct">
+      <view class="cell-col"><text class="tx-ct">{{item.type}}</text></view>
+    </view>
+    <view class="flex-col flex-col-24" data-value="{{item}}" bindtap="tripInfo">
+      <view class="flex-col-19">
+        <view class="cells">
+          <view class="cell-col"><text space="ensp">{{item.startStation}} — {{item.endStation}}</text></view>
+        </view>
+        <view class="cells ">
+          <view class="cell-col">班次：{{item.classCode}}</view>
+        </view>
+        <view class="cells ">
+          <view class="cell-col">日期：{{item.departureDate}}</view>
+        </view>
+      </view>
+      <view class="flex-col-5">
+        <view class="cells">
+          <view class="cell-col"><text space="ensp">总人数：{{item.peopleNum}}</text></view>
+        </view>
+        <view class="cells" wx:if="{{item.jzStatus}}">
+          <button class="pick pd-5">{{item.jzStatus}}</button>
+        </view>
+        <view class="cells " wx:if="{{item.szStatus}}">
+          <button class="pick pd-5">{{item.szStatus}}</button>
+        </view>
+      </view>
+    </view>
+    <view class="tx-ct bdColor flex-col mg-tp-5" wx:if="{{item.status == 1}}">
+      <!-- <view class="flex-col-12" data-value="{{item}}" bindtap="revoke"><text class="size-16" >撤销</text></view> -->
+      <view class="flex-col-8" data-value="{{item}}" bindtap="revokeS">
+        <text class="size-16" wx:if="{{item.szStatus}}">送站撤销</text>
+      </view>
+      <view class="flex-col-8" data-value="{{item}}" bindtap="revokeJ">
+        <text class="size-16" wx:if="{{item.jzStatus}}">接站撤销</text>
+      </view>
+      <view class="flex-col-8" data-value="{{item}}" bindtap="evaluate"><text class="size-16">评价</text></view>
+    </view>
+    <view class="tx-ct bdColor flex-col mg-tp-5" wx:if="{{item.status == 0}}">
+      <view class="flex-col-12" data-value="{{item}}" bindtap="cancel"><text class="size-16">取消行程</text></view>
+      <view class="flex-col-12" data-value="{{item}}" bindtap="lookCoupon"><text class="size-16">查看券码</text></view>
+    </view>
+    <view class="tx-ct bdColor flex-col mg-tp-5" wx:if="{{item.status == 4}}">
+      <view class="flex-col-12" data-value="{{item}}" wx:if="{{item.szStatus}}" bindtap="checkDetailS"><text
+          class="size-16">送站审核</text></view>
+      <view class="flex-col-12" data-value="{{item}}" wx:if="{{item.jzStatus}}" bindtap="checkDetailJ"><text
+          class="size-16">接站审核</text></view>
+    </view>
+  </view>
+  <!-- <block wx:if="{{dataILu}}">
+    <view class="loadMore">正在加载中...</view>
+  </block> -->
+  <!-- <block wx:else>
+    <view class="loadMore">没有更多数据了</view>
+  </block> -->
+  <modal hidden="{{hiddenmodalput}}" title="撤销原因" confirm-text="提交" cancel-text="取消" bindcancel="confirmC"
+    bindconfirm="confirm">
+    <textarea data-obj="form.reason" value="{{form.reason}}" placeholder="请输入撤销原因" bindblur="bindTextAreaBlur" maxlength='-1'
+      style="min-height:100rpx; width: 100%;" class="tx-lt bd pd-10"/>
+    </modal>
+  <view class="tx-ct empty" wx:if="{{list == 0 && listC == 0}}">
+    <image src="https://img01.yzcdn.cn/vant/empty-image-default.png" class="empty-img">
+    </image>
+    <text class="mg-tp-15">暂无记录</text>
+  </view>
+
+  <view class="notice row mg-tp-30 tx-lt pd-lr-15" wx:if="{{currentTab == 1 && list.length!==0}}">
+			<text class="notice-title">说明：</text>
+		如果您核销券码后因特殊原因需要恢复权益次数，可使用“撤销”功能申请争议处理
+		</view>
+</view>

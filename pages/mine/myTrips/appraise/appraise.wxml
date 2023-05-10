@@ -1,0 +1,47 @@
+<!--pages/mine/myTrips/appraise/appraise.wxml-->
+<view class="container bg-w">
+
+  <view class="row">
+    <view class="cell" style="font-weight:bold">对工行服务评价</view>
+    <view class="cell" style="border:none">
+      <view class="cell-col cell-title" style="line-height:60rpx">评分</view>
+      <view class="cell-col cell-input1">
+        <view class="stars">
+          <star class="stars" rateObject="0" bind:change="getScoreGh"></star>
+        </view>
+      </view>
+    </view>
+    <view class="cell">
+      <view class="cell-col cell-title bg-w">评价内容</view>
+    </view>
+    <view class="cell ">
+      <view class="cell-col">
+        <textarea data-obj="form.icbcComment" value="{{form.icbcComment}}" bindblur="bindTextAreaBlur" maxlength='-1'
+          style="min-height:100rpx;" placeholder="请填写评价内容" />
+      </view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="cell" style="font-weight:bold">对机场/高铁贵宾服务评价</view>
+    <view class="cell" style="border:none">
+      <view class="cell-col cell-title" style="line-height:60rpx">评分</view>
+      <view class="cell-col cell-input1">
+        <view class="stars">
+          <star class="stars" rateObject="0" bind:change="getScoreGb"></star>
+        </view>
+      </view>
+    </view>
+    <view class="cell">
+      <view class="cell-col cell-title bg-w">评价内容</view>
+    </view>
+    <view class="cell ">
+      <view class="cell-col">
+        <textarea data-obj="form.vipComment" value="{{form.vipComment}}" bindblur="bindTextAreaBlur" maxlength='-1'
+          style="min-height:100rpx;" placeholder="请填写评价内容" />
+      </view>
+    </view>
+  </view>
+  <view class='row mg-tp-30 tx-ct'>
+    <button type="primary" class="cell-primary" bindtap="handleSubmit">提交</button>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+/* pages/worker/coupon/coupon.wxss */
+/*选项*/
+.option-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+/*选项 文本框*/
+.option-item input {
+  width: 80%;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #000000;
+  padding-left: 20rpx;
+}
+
+/*选项 图片*/
+.img {
+  width: 46rpx;
+  height: 46rpx;
+  margin-left: 20rpx;
+}
+
+.add-option-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60rpx;
+}
+
+/*添加选项*/
+.btnText {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  line-height: 50rpx;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #78a2f0;
+  padding-left: 20rpx;
+}
+
+/* 添加内容 */
+.add_con>text {
+  line-height: 60rpx;
+  font-size: 40rpx;
+  color: #f16765;
+  display: block;
+  margin-right: 20rpx;
+  margin-left: 10rpx;
+}
+
+.add_con>view {
+  font-size: 34rpx;
+  color: #7885cb;
+}

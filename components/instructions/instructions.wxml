@@ -1,0 +1,8 @@
+<!--components/instructions/instructions.wxml-->
+<view class="container bg-w">
+  <view class='bd copy'>
+      <view class="td tx-ct">
+        服务指南
+      </view>
+    </view>
+  </view>

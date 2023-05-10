@@ -1,0 +1,57 @@
+<!--pages/inStaff/appointmentAudit/appointmentAudit.wxml-->
+<!-- 行政预约审核 -->
+<view class="container bg-w">
+  <view class="tabNav">
+    <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab"
+      class="{{currentTab==index ? 'cur' : ''}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+  
+  <view class="cardJ" wx:for="{{list}}" wx:key="index">
+    <view class="tx-ct flex-col">
+        <view class="cell-col flex-col-18"><text class="tx-ct">{{item.type}}</text></view>
+          <view class="cell-col bdColor flex-col-6"><text space="ensp">{{item.status}}</text></view>
+    </view>
+    <view class="flex-col flex-col-24">
+      <view class="flex-col-19">
+        <view class="cells">
+          <view class="cell-col"><text space="ensp">{{item.startStation}} — {{item.endStation}}</text></view>
+        </view>
+        <view class="cells ">
+          <view class="cell-col">预约人：{{item.name}}</view>
+        </view>
+        <view class="cells">
+          <view class="cell-col">电话：{{item.tel}}</view>
+        </view>
+        <view class="cells ">
+          <view class="cell-col">班次：{{item.classCode}}</view>
+        </view>
+        <view class="cells ">
+          <view class="cell-col">日期：{{item.departureDate}}</view>
+        </view>
+      </view>
+      <view class="flex-col-5">
+        <view class="cells">
+          <view class="cell-col"><text space="ensp">总人数：{{item.peopleNum}}</text></view>
+        </view>
+        
+        <view class="cells" wx:if="{{item.jzStatus}}">
+          <button class="pick pd-5">{{item.jzStatus}}</button>
+        </view>
+        <view class="cells " wx:if="{{item.szStatus}}">
+          <button class="pick pd-5">{{item.szStatus}}</button>
+        </view>
+      </view>
+    </view>
+    <view class="tx-ct bdColor">
+        <view class="tx-ct" wx:if="{{oneAudit && item.state == 1}}" data-value="{{item}}" bindtap="oneAudit"><text class="size-16">一级审核</text></view>
+        <view class="tx-ct" wx:if="{{twoAudit && item.state == 2}}" data-value="{{item}}" bindtap="twoAudit"><text class="size-16">二级审核</text></view>
+    </view>
+  </view>
+  <view class="tx-ct empty" wx:if="{{list == 0}}">
+    <image src="https://img01.yzcdn.cn/vant/empty-image-default.png" class="empty-img">
+    </image>
+    <text class="mg-tp-15">暂无记录</text>
+  </view>
+</view>

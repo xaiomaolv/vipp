@@ -1,0 +1,34 @@
+/* pages/mine/myTrips/tripInfo/tripInfo.wxss */
+.cardM{
+  background:linear-gradient(90deg,#9e9778 10%,#eeeee7 40%,#9e9778 90%);
+  border-radius: var(--border-radius);
+  margin:30rpx 0rpx 0 0rpx ;
+  padding: 30rpx;
+  color:#484848 ;
+}
+.cardJ{
+  /* background:linear-gradient(90deg,#cabf90 10%,#eeeee7 40%,#c4b474 90%); */
+  background:#ddd8c0;
+  border-radius: var(--border-radius);
+  margin:30rpx 20rpx 0 20rpx ;
+  padding: 30rpx;
+  color:#484848 ;
+}
+.cardP{
+  background:linear-gradient(90deg,#cabf90 10%,#eeeee7 40%,#c4b474 90%);
+  border-radius: var(--border-radius);
+  margin:30rpx 20rpx 0 20rpx ;
+  padding: 30rpx;
+  color:#484848 ;
+}
+.cells{
+max-width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: flex-start;
+align-content: flex-start;
+/* background-color: #FFF; */
+padding:20rpx  0rpx 15rpx 0rpx;
+border-bottom: 0.0625rem solid  var(--border-color);
+}

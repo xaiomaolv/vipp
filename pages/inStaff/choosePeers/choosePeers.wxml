@@ -1,0 +1,60 @@
+<!--pages/inStaff/choosePeers/choosePeers.wxml-->
+<!-- 预约选择同行人或新增 -->
+<view class="container bg-w">
+  <view class="fixed-add" bindtap="handleAdd">
+    <view class="cuIcon-add"></view>
+  </view>
+
+  <!-- 本人信息 -->
+  <checkbox-group bindchange="mineChange">
+    <view class="flex-col cardJ" wx:for="{{couponInfos}}" wx:key="index" wx:if="{{item.isVip == 0}}">
+      <view class="flex-col-3">
+        <checkbox value="{{item.id}}" checked="{{checkedM}}" />
+      </view>
+      <view class="flex-col-21">
+        <view class="cells">
+          <view class="cell-col">姓名：</view>
+          <view class="cell-col">{{item.name}}</view>
+        </view>
+        <view class="cells">
+          <view class="cell-col">电话：</view>
+          <view class="cell-col">{{item.tel}}</view>
+        </view>
+        <view class="cells">
+          <view class="cell-col">身份证号：</view>
+          <view class="cell-col">{{item.idCard}}</view>
+        </view>
+      </view>
+    </view>
+  </checkbox-group>
+  <!-- 同行人 -->
+  <checkbox-group bindchange="checkboxChange">
+    <view class="cardM" wx:for="{{couponInfos}}" wx:key="index" wx:if="{{item.isVip == 1}}">
+      <view class="flex-col">
+        <view class="flex-col-3">
+          <checkbox value="{{item.id}}" checked="{{checkedC}}" />
+        </view>
+        <view class="flex-col-21">
+          <view class="cells">
+            <view class="cell-col">姓名：</view>
+            <view class="cell-col">{{item.name}}</view>
+          </view>
+          <view class="cells">
+            <view class="cell-col">电话：</view>
+            <view class="cell-col">{{item.tel}}</view>
+          </view>
+          <view class="cells">
+            <view class="cell-col">身份证号：</view>
+            <view class="cell-col">{{item.idCard}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </checkbox-group>
+  <!-- 底部操作栏 -->
+  <view class=''>
+    <view class="fixed-add1" bindtap="order">
+      <text>预约</text>
+    </view>
+  </view>
+</view>
